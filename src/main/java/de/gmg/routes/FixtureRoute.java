@@ -10,6 +10,7 @@ import spark.Route;
 public class FixtureRoute extends Route {
 
     final IFootballApiClient iFootballApiClient;
+    private final static String FIXTURES_KEY = "fixtures";
 
     public FixtureRoute(IFootballApiClient iFootballApiClient) {
         super("/fixture/:comp_id/:match_date");
@@ -41,10 +42,10 @@ public class FixtureRoute extends Route {
 
     private static HashMap<String, String> getMapForFixtures(String competitionId, String matchDate) {
         final HashMap<String, String> forFixturesMap = new HashMap<String, String>();
-        forFixturesMap.put("Action", "fixtures");
-        forFixturesMap.put("APIKey", IFootballApiClient.API_KEY);
-        forFixturesMap.put("comp_id", competitionId);
-        forFixturesMap.put("match_date", matchDate);
+        forFixturesMap.put(IFootballApiClient.ACTION_KEY, FIXTURES_KEY);
+        forFixturesMap.put(IFootballApiClient.API_KEY, IFootballApiClient.REAL_API_KEY);
+        forFixturesMap.put(IFootballApiClient.COMP_ID_KEY, competitionId);
+        forFixturesMap.put(IFootballApiClient.MATCH_DATE_KEY, matchDate);
 
         return forFixturesMap;
     }

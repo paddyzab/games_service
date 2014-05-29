@@ -9,7 +9,8 @@ import spark.Route;
 
 public class StandingsRoute extends Route {
 
-    final IFootballApiClient iFootballApiClient;
+    private final IFootballApiClient iFootballApiClient;
+    private static final String STANDINGS_KEY = "standings";
 
     public StandingsRoute(IFootballApiClient iFootballApiClient) {
         super("/standings/:comp_id");
@@ -40,9 +41,9 @@ public class StandingsRoute extends Route {
 
     private static HashMap<String, String> getMapForStandings(String competitionId) {
         final HashMap<String, String> forStandingsMap = new HashMap<String, String>();
-        forStandingsMap.put("Action", "standings");
-        forStandingsMap.put("APIKey", IFootballApiClient.API_KEY);
-        forStandingsMap.put("comp_id", competitionId);
+        forStandingsMap.put(IFootballApiClient.ACTION_KEY, STANDINGS_KEY);
+        forStandingsMap.put(IFootballApiClient.API_KEY, IFootballApiClient.REAL_API_KEY);
+        forStandingsMap.put(IFootballApiClient.COMP_ID_KEY, competitionId);
 
         return forStandingsMap;
     }
