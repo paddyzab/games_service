@@ -5,9 +5,8 @@ import de.gmg.model.Competitions;
 import java.util.HashMap;
 import spark.Request;
 import spark.Response;
-import spark.Route;
 
-public class CompetitionsRoute extends Route {
+public class CompetitionsRoute extends MyRoute {
 
     private final IFootballApiClient iFootballApiClient;
     private static final String COMPETITIONS_KEY = "competitions";
@@ -26,8 +25,8 @@ public class CompetitionsRoute extends Route {
 
     private static HashMap<String, String> getMapForCompetition() {
         final HashMap<String, String> forCompetitionMap = new HashMap<String, String>();
-        forCompetitionMap.put(IFootballApiClient.ACTION_KEY, COMPETITIONS_KEY);
-        forCompetitionMap.put(IFootballApiClient.API_KEY, IFootballApiClient.REAL_API_KEY);
+        forCompetitionMap.put(ACTION_KEY, COMPETITIONS_KEY);
+        forCompetitionMap.put(API_KEY, IFootballApiClient.REAL_API_KEY);
 
         return forCompetitionMap;
     }

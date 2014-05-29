@@ -2,9 +2,8 @@ package de.gmg.routes;
 
 import spark.Request;
 import spark.Response;
-import spark.Route;
 
-public class HelloRoute extends Route {
+public class HelloRoute extends MyRoute {
 
 
     public HelloRoute() {
