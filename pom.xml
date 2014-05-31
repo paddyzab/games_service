@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>gdg.gmg</groupId>
-    <artifactId>give_me_games</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>games_services</artifactId>
+    <version>0.0.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Games service</name>

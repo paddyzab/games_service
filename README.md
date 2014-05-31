@@ -30,6 +30,8 @@ use http://www.premierleague.com/en-gb/matchday/league-table.html as a reference
 - http://localhost:4567/standings/1204
 Standings are the current standings of competition.
 
+All requests return JSON.
+
 License is GNUBL.
 
 Build
