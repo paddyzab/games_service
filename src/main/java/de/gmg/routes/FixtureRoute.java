@@ -12,7 +12,7 @@ public class FixtureRoute extends MyRoute {
     private final static String FIXTURES_KEY = "fixtures";
 
     public FixtureRoute(IFootballApiClient iFootballApiClient) {
-        super("/fixture/:comp_id/:match_date");
+        super(FIXTURE_ROUTE);
 
         this.iFootballApiClient = iFootballApiClient;
     }

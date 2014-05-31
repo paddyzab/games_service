@@ -12,7 +12,7 @@ public class StandingsRoute extends MyRoute {
     private static final String STANDINGS_KEY = "standings";
 
     public StandingsRoute(IFootballApiClient iFootballApiClient) {
-        super("/standings/:comp_id");
+        super(STANDINGS_ROUTE);
 
         this.iFootballApiClient = iFootballApiClient;
     }

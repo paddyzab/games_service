@@ -12,7 +12,7 @@ public class CompetitionsRoute extends MyRoute {
     private static final String COMPETITIONS_KEY = "competitions";
 
     public CompetitionsRoute(IFootballApiClient iFootballApiClient) {
-        super("/competitions");
+        super(COMPETITIONS_ROUTE);
 
         this.iFootballApiClient = iFootballApiClient;
     }

@@ -7,7 +7,7 @@ public class HelloRoute extends MyRoute {
 
 
     public HelloRoute() {
-        super("/hello");
+        super(HELLO_ROUTE);
     }
 
     @Override
