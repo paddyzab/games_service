@@ -22,7 +22,7 @@ public class FixtureRoute extends MyRoute {
 
     @Override
     public String handle(Request request, Response response) {
-        final Fixture fixture = iFootballApiClient.getFixture(getMapForFixtures(request.params("comp_id"), request.params("match_date")));
+        final Fixture fixture = iFootballApiClient.getFixture(getMapForFixtures(request.params(COMP_ID_KEY), request.params(MATCH_DATE_KEY)));
         response.status(200);
 
         if (fixture.getMatches().size() > 0) {

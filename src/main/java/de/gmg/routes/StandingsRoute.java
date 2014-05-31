@@ -22,7 +22,7 @@ public class StandingsRoute extends MyRoute {
 
     @Override
     public Object handle(Request request, Response response) {
-        final Standings standings = iFootballApiClient.getStandings(getMapForStandings(request.params("comp_id")));
+        final Standings standings = iFootballApiClient.getStandings(getMapForStandings(request.params(COMP_ID_KEY)));
         response.status(200);
 
         if (standings.getTeams().size() > 0) {
