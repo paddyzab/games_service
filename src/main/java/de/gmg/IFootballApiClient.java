@@ -1,9 +1,9 @@
 package de.gmg;
 
 import java.util.Map;
-import de.gmg.model.Competitions;
-import de.gmg.model.Fixture;
-import de.gmg.model.Standings;
+import de.gmg.models.Competitions;
+import de.gmg.models.Fixture;
+import de.gmg.models.Standings;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.QueryMap;

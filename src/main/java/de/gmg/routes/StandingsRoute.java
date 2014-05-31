@@ -1,7 +1,7 @@
 package de.gmg.routes;
 
 import de.gmg.IFootballApiClient;
-import de.gmg.model.Standings;
+import de.gmg.models.Standings;
 import java.util.HashMap;
 import spark.Request;
 import spark.Response;
@@ -25,10 +25,18 @@ public class StandingsRoute extends MyRoute {
 
         try {
             final Standings standings = iFootballApiClient.getStandings(getMapForStandings(request.params("comp_id")));
-            for(int i = 0; i < standings.getTeams().size(); i++) {
-                String currentTeamStanding = standings.getTeams().get(i).getStandingTeamName();
 
+            if (standings.getTeams().size() > 0) {
+            for(int i = 0; i < standings.getTeams().size(); i++) {
+                response.status(200);
+
+                String currentTeamStanding = standings.getTeams().get(i).getStandingTeamName();
                 currentStanding += (i + 1) + ". " + currentTeamStanding + System.lineSeparator();
+            }
+            } else {
+                response.status(404);
+
+                currentStanding = "Current standings are empty.";
             }
         } catch (Exception e) {
             e.printStackTrace();

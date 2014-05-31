@@ -1,12 +1,12 @@
 package de.gmg;
 
 import de.gmg.endpoint.Endpoint;
-import de.gmg.model.Competitions;
-import de.gmg.model.Standing;
-import de.gmg.model.Standings;
+import de.gmg.models.Competitions;
+import de.gmg.models.Standing;
+import de.gmg.models.Standings;
 import java.util.HashMap;
-import de.gmg.model.Fixture;
-import de.gmg.model.Match;
+import de.gmg.models.Fixture;
+import de.gmg.models.Match;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import retrofit.Callback;

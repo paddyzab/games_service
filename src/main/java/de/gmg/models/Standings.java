@@ -1,4 +1,4 @@
-package de.gmg.model;
+package de.gmg.models;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;

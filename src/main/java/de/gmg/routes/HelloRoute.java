@@ -12,6 +12,8 @@ public class HelloRoute extends MyRoute {
 
     @Override
     public Object handle(Request request, Response response) {
+        response.status(200);
+
         return "We will build own own Internet with Blackjack and Bitcoins!";
     }
 }

@@ -1,7 +1,7 @@
 package de.gmg.routes;
 
 import de.gmg.IFootballApiClient;
-import de.gmg.model.Fixture;
+import de.gmg.models.Fixture;
 import java.util.HashMap;
 import spark.Request;
 import spark.Response;
@@ -28,12 +28,17 @@ public class FixtureRoute extends MyRoute {
 
             if (fixture.getMatches() != null) {
                 for (int i = 0; i < fixture.getMatches().size(); i++) {
+                    response.status(200);
+
                     String formattedTeams = fixture.getMatches().get(i).getMatchLocalteamName() + " vs " + fixture.getMatches().get(0).getMatchVisitorteamName();
                     String formattedResult = fixture.getMatches().get(i).getMatchLocalteamScore() + ":" + fixture.getMatches().get(0).getMatchVisitorteamScore();
 
                     fixtureForDay += formattedTeams + " " + formattedResult + System.lineSeparator();
+
                 }
             } else {
+                response.status(404);
+
                 fixtureForDay = "No games for this day!";
             }
         } catch (Exception e) {
