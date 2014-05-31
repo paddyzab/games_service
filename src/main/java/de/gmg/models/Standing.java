@@ -6,6 +6,7 @@ public class Standing {
 
     @SerializedName("stand_id")
     private String standingId;
+
     @SerializedName("stand_competition_id")
     private String standingCompetitionId;
     @SerializedName("stand_season")
@@ -70,6 +71,138 @@ public class Standing {
     private String standingPoints;
     @SerializedName("stand_desc")
     private String standingDescription;
+
+    public void setStandingId(String standingId) {
+        this.standingId = standingId;
+    }
+
+    public void setStandingCompetitionId(String standingCompetitionId) {
+        this.standingCompetitionId = standingCompetitionId;
+    }
+
+    public void setStandingSeason(String standingSeason) {
+        this.standingSeason = standingSeason;
+    }
+
+    public void setStandingRound(String standingRound) {
+        this.standingRound = standingRound;
+    }
+
+    public void setStandingStageId(String standingStageId) {
+        this.standingStageId = standingStageId;
+    }
+
+    public void setStandingGroup(String standingGroup) {
+        this.standingGroup = standingGroup;
+    }
+
+    public void setStandingCountry(String standingCountry) {
+        this.standingCountry = standingCountry;
+    }
+
+    public void setStandingTeamId(String standingTeamId) {
+        this.standingTeamId = standingTeamId;
+    }
+
+    public void setStandingTeamName(String standingTeamName) {
+        this.standingTeamName = standingTeamName;
+    }
+
+    public void setStandingStatus(String standingStatus) {
+        this.standingStatus = standingStatus;
+    }
+
+    public void setStandingRecentForm(String standingRecentForm) {
+        this.standingRecentForm = standingRecentForm;
+    }
+
+    public void setStandingPosition(String standingPosition) {
+        this.standingPosition = standingPosition;
+    }
+
+    public void setStandingOverallGp(String standingOverallGp) {
+        this.standingOverallGp = standingOverallGp;
+    }
+
+    public void setStandingOverallWins(String standingOverallWins) {
+        this.standingOverallWins = standingOverallWins;
+    }
+
+    public void setStandingsOverallDraws(String standingsOverallDraws) {
+        this.standingsOverallDraws = standingsOverallDraws;
+    }
+
+    public void setStandingOverallLoses(String standingOverallLoses) {
+        this.standingOverallLoses = standingOverallLoses;
+    }
+
+    public void setStandingOverallGoalScores(String standingOverallGoalScores) {
+        this.standingOverallGoalScores = standingOverallGoalScores;
+    }
+
+    public void setStandingOverallGoalAgainst(String standingOverallGoalAgainst) {
+        this.standingOverallGoalAgainst = standingOverallGoalAgainst;
+    }
+
+    public void setStandingHomeGamesPlayed(String standingHomeGamesPlayed) {
+        this.standingHomeGamesPlayed = standingHomeGamesPlayed;
+    }
+
+    public void setStandingHomeWins(String standingHomeWins) {
+        this.standingHomeWins = standingHomeWins;
+    }
+
+    public void setStandingHomeDraws(String standingHomeDraws) {
+        this.standingHomeDraws = standingHomeDraws;
+    }
+
+    public void setStandingHomeLoses(String standingHomeLoses) {
+        this.standingHomeLoses = standingHomeLoses;
+    }
+
+    public void setStandingHomeGoalsScored(String standingHomeGoalsScored) {
+        this.standingHomeGoalsScored = standingHomeGoalsScored;
+    }
+
+    public void setStandingHomeGoalsAgainst(String standingHomeGoalsAgainst) {
+        this.standingHomeGoalsAgainst = standingHomeGoalsAgainst;
+    }
+
+    public void setStandingAwayGamesPlayed(String standingAwayGamesPlayed) {
+        this.standingAwayGamesPlayed = standingAwayGamesPlayed;
+    }
+
+    public void setStandingAwayWins(String standingAwayWins) {
+        this.standingAwayWins = standingAwayWins;
+    }
+
+    public void setStandingAwayDraws(String standingAwayDraws) {
+        this.standingAwayDraws = standingAwayDraws;
+    }
+
+    public void setStandingAwayLoses(String standingAwayLoses) {
+        this.standingAwayLoses = standingAwayLoses;
+    }
+
+    public void setStandingAwayGoalsScored(String standingAwayGoalsScored) {
+        this.standingAwayGoalsScored = standingAwayGoalsScored;
+    }
+
+    public void setStandingAwayGoalsAway(String standingAwayGoalsAway) {
+        this.standingAwayGoalsAway = standingAwayGoalsAway;
+    }
+
+    public void setStandingGD(String standingGD) {
+        this.standingGD = standingGD;
+    }
+
+    public void setStandingPoints(String standingPoints) {
+        this.standingPoints = standingPoints;
+    }
+
+    public void setStandingDescription(String standingDescription) {
+        this.standingDescription = standingDescription;
+    }
 
     public String getStandingId() {
         return standingId;

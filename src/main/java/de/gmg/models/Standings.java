@@ -6,7 +6,11 @@ import java.util.ArrayList;
 public class Standings extends APIResponse {
 
     @SerializedName("teams")
-    ArrayList<Standing> teams;
+    private ArrayList<Standing> teams;
+
+    public void setTeams(ArrayList<Standing> teams) {
+        this.teams = teams;
+    }
 
     public ArrayList<Standing> getTeams() {
         return teams;

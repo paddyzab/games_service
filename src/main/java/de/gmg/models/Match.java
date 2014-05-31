@@ -38,6 +38,70 @@ public class Match {
     @SerializedName("match_events")
     List<MatchFact> matchEvents;
 
+    public void setMatchId(String matchId) {
+        this.matchId = matchId;
+    }
+
+    public void setMatchStaticId(String matchStaticId) {
+        this.matchStaticId = matchStaticId;
+    }
+
+    public void setMatchCompetitionId(String matchCompetitionId) {
+        this.matchCompetitionId = matchCompetitionId;
+    }
+
+    public void setMatchDate(String matchDate) {
+        this.matchDate = matchDate;
+    }
+
+    public void setMatchFormattedDate(String matchFormattedDate) {
+        this.matchFormattedDate = matchFormattedDate;
+    }
+
+    public void setMatchStatus(String matchStatus) {
+        this.matchStatus = matchStatus;
+    }
+
+    public void setMatchTime(String matchTime) {
+        this.matchTime = matchTime;
+    }
+
+    public void setMatchCommentaryAvailable(String matchCommentaryAvailable) {
+        this.matchCommentaryAvailable = matchCommentaryAvailable;
+    }
+
+    public void setMatchLocalteamId(String matchLocalteamId) {
+        this.matchLocalteamId = matchLocalteamId;
+    }
+
+    public void setMatchLocalteamName(String matchLocalteamName) {
+        this.matchLocalteamName = matchLocalteamName;
+    }
+
+    public void setMatchLocalteamScore(String matchLocalteamScore) {
+        this.matchLocalteamScore = matchLocalteamScore;
+    }
+
+    public void setMatchVisitorteamId(String matchVisitorteamId) {
+        this.matchVisitorteamId = matchVisitorteamId;
+    }
+
+    public void setMatchVisitorteamName(String matchVisitorteamName) {
+        this.matchVisitorteamName = matchVisitorteamName;
+    }
+
+    public void setMatchVisitorteamScore(String matchVisitorteamScore) {
+        this.matchVisitorteamScore = matchVisitorteamScore;
+    }
+
+    public void setMatchHalftimeScore(String matchHalftimeScore) {
+        this.matchHalftimeScore = matchHalftimeScore;
+    }
+
+    public void setMatchEvents(List<MatchFact> matchEvents) {
+        this.matchEvents = matchEvents;
+    }
+
     public String getMatchId() {
         return matchId;
     }
