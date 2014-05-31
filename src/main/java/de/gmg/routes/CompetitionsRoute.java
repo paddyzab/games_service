@@ -1,5 +1,6 @@
 package de.gmg.routes;
 
+import com.google.gson.Gson;
 import de.gmg.IFootballApiClient;
 import de.gmg.models.Competitions;
 import java.util.HashMap;
@@ -8,26 +9,25 @@ import spark.Response;
 
 public class CompetitionsRoute extends MyRoute {
 
-    private final IFootballApiClient iFootballApiClient;
     private static final String COMPETITIONS_KEY = "competitions";
+    private final IFootballApiClient iFootballApiClient;
+    private final Gson gson;
 
-    public CompetitionsRoute(IFootballApiClient iFootballApiClient) {
+    public CompetitionsRoute(IFootballApiClient iFootballApiClient, Gson gson) {
         super(COMPETITIONS_ROUTE);
 
         this.iFootballApiClient = iFootballApiClient;
+        this.gson = gson;
     }
 
     @Override
     public Object handle(Request request, Response response) {
         Competitions competitions =  iFootballApiClient.getCompetition(getMapForCompetition());
+        response.status(200);
 
         if(competitions.getCompetitions().size() > 0) {
-            response.status(200);
-
-            return competitions.getCompetitions().get(0).getName();
+            return gson.toJson(competitions.getCompetitions());
         } else {
-            response.status(404);
-
             return "No competitions to handle.";
         }
     }

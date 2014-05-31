@@ -2,7 +2,7 @@ package de.gmg.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Competition extends APIResponse {
+public class Competition {
 
     @SerializedName("id")
     private String id;

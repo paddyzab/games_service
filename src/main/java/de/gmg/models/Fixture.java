@@ -3,7 +3,7 @@ package de.gmg.models;
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
-public class Fixture  extends APIResponse {
+public class Fixture {
 
     @SerializedName("matches")
     ArrayList<Match> matches;

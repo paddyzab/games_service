@@ -2,7 +2,7 @@ package de.gmg.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Standing extends APIResponse {
+public class Standing {
 
     @SerializedName("stand_id")
     private String standingId;

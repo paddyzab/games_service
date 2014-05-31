@@ -1,5 +1,6 @@
 package de.gmg.routes;
 
+import com.google.gson.Gson;
 import de.gmg.IFootballApiClient;
 import de.gmg.models.Fixture;
 import java.util.HashMap;
@@ -10,42 +11,25 @@ public class FixtureRoute extends MyRoute {
 
     final IFootballApiClient iFootballApiClient;
     private final static String FIXTURES_KEY = "fixtures";
+    private final Gson gson;
 
-    public FixtureRoute(IFootballApiClient iFootballApiClient) {
+    public FixtureRoute(IFootballApiClient iFootballApiClient, Gson gson) {
         super(FIXTURE_ROUTE);
 
         this.iFootballApiClient = iFootballApiClient;
+        this.gson = gson;
     }
 
     @Override
     public String handle(Request request, Response response) {
+        final Fixture fixture = iFootballApiClient.getFixture(getMapForFixtures(request.params("comp_id"), request.params("match_date")));
+        response.status(200);
 
-        String fixtureForDay = "";
-        response.type(DEFAULT_RESPONSE_TYPE);
-
-        try {
-            Fixture fixture = iFootballApiClient.getFixture(getMapForFixtures(request.params("comp_id"), request.params("match_date")));
-
-            if (fixture.getMatches() != null) {
-                for (int i = 0; i < fixture.getMatches().size(); i++) {
-                    response.status(200);
-
-                    String formattedTeams = fixture.getMatches().get(i).getMatchLocalteamName() + " vs " + fixture.getMatches().get(0).getMatchVisitorteamName();
-                    String formattedResult = fixture.getMatches().get(i).getMatchLocalteamScore() + ":" + fixture.getMatches().get(0).getMatchVisitorteamScore();
-
-                    fixtureForDay += formattedTeams + " " + formattedResult + System.lineSeparator();
-
-                }
-            } else {
-                response.status(404);
-
-                fixtureForDay = "No games for this day!";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (fixture.getMatches().size() > 0) {
+            return gson.toJson(fixture.getMatches());
+        } else {
+            return "No games for this day.";
         }
-
-        return fixtureForDay;
     }
 
     private static HashMap<String, String> getMapForFixtures(String competitionId, String matchDate) {

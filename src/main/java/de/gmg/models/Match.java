@@ -3,7 +3,7 @@ package de.gmg.models;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
-public class Match extends APIResponse {
+public class Match {
 
     @SerializedName("match_id")
     String matchId;

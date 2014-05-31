@@ -1,5 +1,6 @@
 package de.gmg.routes;
 
+import com.google.gson.Gson;
 import de.gmg.IFootballApiClient;
 import de.gmg.models.Standings;
 import java.util.HashMap;
@@ -8,41 +9,27 @@ import spark.Response;
 
 public class StandingsRoute extends MyRoute {
 
-    private final IFootballApiClient iFootballApiClient;
     private static final String STANDINGS_KEY = "standings";
+    private final IFootballApiClient iFootballApiClient;
+    private final Gson gson;
 
-    public StandingsRoute(IFootballApiClient iFootballApiClient) {
+    public StandingsRoute(IFootballApiClient iFootballApiClient, Gson gson) {
         super(STANDINGS_ROUTE);
 
         this.iFootballApiClient = iFootballApiClient;
+        this.gson = gson;
     }
 
     @Override
     public Object handle(Request request, Response response) {
+        final Standings standings = iFootballApiClient.getStandings(getMapForStandings(request.params("comp_id")));
+        response.status(200);
 
-        String currentStanding = "";
-        response.type(DEFAULT_RESPONSE_TYPE);
-
-        try {
-            final Standings standings = iFootballApiClient.getStandings(getMapForStandings(request.params("comp_id")));
-
-            if (standings.getTeams().size() > 0) {
-            for(int i = 0; i < standings.getTeams().size(); i++) {
-                response.status(200);
-
-                String currentTeamStanding = standings.getTeams().get(i).getStandingTeamName();
-                currentStanding += (i + 1) + ". " + currentTeamStanding + System.lineSeparator();
-            }
-            } else {
-                response.status(404);
-
-                currentStanding = "Current standings are empty.";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (standings.getTeams().size() > 0) {
+            return gson.toJson(standings.getTeams());
+        } else {
+            return "No standings to handle.";
         }
-
-        return currentStanding;
     }
 
 

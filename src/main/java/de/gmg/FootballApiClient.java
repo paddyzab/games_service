@@ -1,5 +1,6 @@
 package de.gmg;
 
+import com.google.gson.Gson;
 import de.gmg.endpoint.Endpoint;
 import de.gmg.routes.CompetitionsRoute;
 import de.gmg.routes.FixtureRoute;
@@ -12,10 +13,11 @@ import static spark.Spark.get;
 
 public class FootballApiClient {
 
-
     public static final Logger Log = LoggerFactory.getLogger(FootballApiClient.class);
 
     public static void main(String... args) {
+
+        final Gson gson = new Gson();
 
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(Endpoint.API_URL)
@@ -28,13 +30,13 @@ public class FootballApiClient {
         get(new HelloRoute());
 
         // Get available competitions list
-        get(new CompetitionsRoute(iFootballApiClient));
+        get(new CompetitionsRoute(iFootballApiClient, gson));
 
         // Get league standings.
-        get(new StandingsRoute(iFootballApiClient));
+        get(new StandingsRoute(iFootballApiClient, gson));
 
         // Get Fixture for specific day and competition
-        get(new FixtureRoute(iFootballApiClient));
+        get(new FixtureRoute(iFootballApiClient, gson));
     }
 
 
