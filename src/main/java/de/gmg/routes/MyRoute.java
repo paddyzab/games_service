@@ -14,8 +14,6 @@ public abstract class MyRoute extends Route {
     public static final String COMP_ID_KEY = "comp_id";
     public static final String MATCH_DATE_KEY = "match_date";
 
-    public static final String DEFAULT_RESPONSE_TYPE = "text/plain";
-
     protected MyRoute(String path) {
         super(path);
     }
