@@ -1,0 +1,6 @@
+#build
+mvn clean package | grep -v "skipping" | grep -v "Download"
+chmod +x target/game_service-*-SNAPSHOT-jar-with-dependencies.jar
+
+#run
+mvn clean package exec:java -Dexec.mainClass=de.gmg.FootballApiClient | grep -v "skipping"
