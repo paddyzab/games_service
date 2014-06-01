@@ -1,0 +1,119 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# games_service
+Game Service API is a service where you will get information about standings, fixtures and games for multiple competitions.
+
+# Competition
+Competition related resources of the **Game Service API**
+
+## Competitons [/competitions]
+### List all currenlty supported Competitions [GET]
++ Response 200 (application/json)
+        
+        [{
+          "id":"1204","name":"Premier League","region":"England"
+        }]
+
+## Standings [/standings/{comp_id}]
+
++ Parameters
+   + comp_id (required, number, `1024`) ... Numeric `comp_id` of the Competition to perform action with. 
+
+### Retrive Current standings of a Competition [GET]
++ Response 200 (application/json)
+
+    + Body
+    
+            [
+                {"stand_id":"12049259","stand_competition_id":"1204","stand_season":"2013/2014","stand_round":"38","stand_stage_id":"12041081","stand_group":"","stand_country":"England","stand_team_id":"9259","stand_team_name":"Manchester City","stand_status":"up","stand_recent_form":"WWWWW","stand_position":"1","stand_overall_w":"27","stand_overall_d":"5","stand_overall_l":"6","stand_overall_gs":"102","stand_overall_ga":"37","stand_home_gp":"19","stand_home_w":"17","stand_home_d":"1","stand_home_l":"1","stand_home_gs":"63","stand_home_ga":"13","stand_away_gp":"19","stand_away_w":"17","stand_away_d":"1","stand_away_l":"1","stand_away_gs":"63","stand_away_ga":"13","stand_gd":"65","stand_points":"86","stand_desc":"UEFA Champions League"},
+                {"stand_id":"12049249","stand_competition_id":"1204","stand_season":"2013/2014","stand_round":"38","stand_stage_id":"12041081","stand_group":"","stand_country":"England","stand_team_id":"9249","stand_team_name":"Liverpool","stand_status":"down","stand_recent_form":"WDLWW","stand_position":"2","stand_overall_w":"26","stand_overall_d":"6","stand_overall_l":"6","stand_overall_gs":"101","stand_overall_ga":"50","stand_home_gp":"19","stand_home_w":"16","stand_home_d":"1","stand_home_l":"2","stand_home_gs":"53","stand_home_ga":"18","stand_away_gp":"19","stand_away_w":"16","stand_away_d":"1","stand_away_l":"2","stand_away_gs":"53","stand_away_ga":"18","stand_gd":"51","stand_points":"84","stand_desc":"UEFA Champions League"},
+                {"stand_id":"12049092","stand_competition_id":"1204","stand_season":"2013/2014","stand_round":"38","stand_stage_id":"12041081","stand_group":"","stand_country":"England","stand_team_id":"9092","stand_team_name":"Chelsea","stand_status":"down","stand_recent_form":"WDWLW","stand_position":"3","stand_overall_w":"25","stand_overall_d":"7","stand_overall_l":"6","stand_overall_gs":"71","stand_overall_ga":"27","stand_home_gp":"19","stand_home_w":"15","stand_home_d":"3","stand_home_l":"1","stand_home_gs":"43","stand_home_ga":"11","stand_away_gp":"19","stand_away_w":"15","stand_away_d":"3","stand_away_l":"1","stand_away_gs":"43","stand_away_ga":"11","stand_gd":"44","stand_points":"82","stand_desc":"UEFA Champions League"}
+            ]
+
+## Fixtures [/fixtures/{comp_id}/{match_date}]
+
++ Parameters
+    + comp_id (required, number, `1024`) ... Numeric `comp_id` of the Competition to perform action with.
+    + match_date (required, text, `06.05.2014`) ... Text 'match_date' of the Fixture you're interested to to perform action.
+    
+### Retrive Fixture of a Competition for a Specific Date [GET]
++ Response 200 (application/json)
+    
+    + Body
+    
+            [
+                {
+                    "match_id":"1778469",
+                    "match_static_id":"0",
+                    "match_comp_id":"1204",
+                    "match_date":"May 06",
+                    "match_formatted_date":"06.05.2014",
+                    "match_status":"FT","match_time":"18:45",
+                    "match_commentary_available":"",
+                    "match_localteam_id":"9260",
+                    "match_localteam_name":"Manchester United",
+                    "match_localteam_score":"3",
+                    "match_visitorteam_id":"9221",
+                    "match_visitorteam_name":"Hull City",
+                    "match_visitorteam_score":"1",
+                    "match_ht_score":"[1-0]",
+                    "match_events":
+                        [
+                            {
+                                "event_id":"17784691",
+                                "event_type":"goal",
+                                "event_minute":"31",
+                                "event_team":"localteam",
+                                "event_player":"J. Wilson",
+                                "event_player_id":"0",
+                                "event_result":"[1 - 0]"
+                            },
+                            {
+                                "event_id":"17784692",
+                                "event_type":"yellowcard",
+                                "event_minute":"38",
+                                "event_team":"localteam",
+                                "event_player":"M. Fellaini",
+                                "event_player_id":"13519",
+                                "event_result":""
+                            },
+                            {
+                                "event_id":"17784693",
+                                "event_type":"yellowcard",
+                                "event_minute":"46",
+                                "event_team":"visitorteam",
+                                "event_player":"D. Meyler",
+                                "event_player_id":"39559",
+                                "event_result":""
+                            },
+                            {
+                                "event_id":"17784694",
+                                "event_type":"goal",
+                                "event_minute":"61",
+                                "event_team":"localteam",
+                                "event_player":"J. Wilson",
+                                "event_player_id":"0",
+                                "event_result":"[2 - 0]"
+                            },
+                            {
+                                "event_id":"17784695",
+                                "event_type":"goal",
+                                "event_minute":"63",
+                                "event_team":"visitorteam",
+                                "event_player":"M. Fryatt",
+                                "event_player_id":"15712",
+                                "event_result":"[2 - 1]"
+                            },
+                            {   
+                                "event_id":"17784696",
+                                "event_type":"goal",
+                                "event_minute":"86",
+                                "event_team":"localteam",
+                                "event_player":"R. van Persie",
+                                "event_player_id":"49",
+                                "event_result":"[3 - 1]"
+                            }
+                        ]
+                    }
+            ]
