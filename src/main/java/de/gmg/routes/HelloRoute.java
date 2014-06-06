@@ -1,13 +1,14 @@
 package de.gmg.routes;
 
+import de.gmg.IFootballApiClient;
 import spark.Request;
 import spark.Response;
 
 public class HelloRoute extends MyRoute {
 
 
-    public HelloRoute() {
-        super(HELLO_ROUTE);
+    public HelloRoute(IFootballApiClient iFootballApiClient) {
+        super(HELLO_ROUTE, iFootballApiClient);
     }
 
     @Override

@@ -9,14 +9,12 @@ import spark.Response;
 
 public class FixtureRoute extends MyRoute {
 
-    final IFootballApiClient iFootballApiClient;
     private final static String FIXTURES_KEY = "fixtures";
     private final Gson gson;
 
     public FixtureRoute(IFootballApiClient iFootballApiClient, Gson gson) {
-        super(FIXTURE_ROUTE);
+        super(FIXTURE_ROUTE, iFootballApiClient);
 
-        this.iFootballApiClient = iFootballApiClient;
         this.gson = gson;
     }
 

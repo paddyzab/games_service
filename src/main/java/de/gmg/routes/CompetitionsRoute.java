@@ -10,13 +10,11 @@ import spark.Response;
 public class CompetitionsRoute extends MyRoute {
 
     private static final String COMPETITIONS_KEY = "competitions";
-    private final IFootballApiClient iFootballApiClient;
     private final Gson gson;
 
     public CompetitionsRoute(IFootballApiClient iFootballApiClient, Gson gson) {
-        super(COMPETITIONS_ROUTE);
+        super(COMPETITIONS_ROUTE, iFootballApiClient);
 
-        this.iFootballApiClient = iFootballApiClient;
         this.gson = gson;
     }
 

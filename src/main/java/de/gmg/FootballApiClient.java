@@ -27,7 +27,7 @@ public class FootballApiClient {
 
 
         // Just example answer.
-        get(new HelloRoute());
+        get(new HelloRoute(iFootballApiClient));
 
         // Get available competitions list
         get(new CompetitionsRoute(iFootballApiClient, gson));

@@ -1,5 +1,6 @@
 package de.gmg.routes;
 
+import de.gmg.IFootballApiClient;
 import spark.Route;
 
 public abstract class MyRoute extends Route {
@@ -14,7 +15,11 @@ public abstract class MyRoute extends Route {
     public static final String COMP_ID_KEY = "comp_id";
     public static final String MATCH_DATE_KEY = "match_date";
 
-    protected MyRoute(String path) {
+    final IFootballApiClient iFootballApiClient;
+
+    protected MyRoute(String path, IFootballApiClient iFootballApiClient) {
         super(path);
+
+        this.iFootballApiClient = iFootballApiClient;
     }
 }
