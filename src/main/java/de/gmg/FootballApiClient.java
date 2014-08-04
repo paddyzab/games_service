@@ -22,7 +22,8 @@ public class FootballApiClient {
 
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(Endpoint.API_URL)
-                .build();
+                    .setLogLevel(RestAdapter.LogLevel.FULL)
+                        .build();
 
         final IFootballApiClient iFootballApiClient = restAdapter.create(IFootballApiClient.class);
 
