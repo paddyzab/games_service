@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import retrofit.RestAdapter;
 import static spark.Spark.get;
+import static spark.Spark.setPort;
 
 public class FootballApiClient {
 
@@ -25,6 +26,7 @@ public class FootballApiClient {
 
         final IFootballApiClient iFootballApiClient = restAdapter.create(IFootballApiClient.class);
 
+        setPort(9090);
 
         // Just example answer.
         get(new HelloRoute(iFootballApiClient));
